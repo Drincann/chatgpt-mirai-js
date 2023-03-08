@@ -9,7 +9,7 @@ void async function () {
   await bot.open(config.miraiJSConfig)
   console.log('Bot started.')
 
-  const dynamicWhite = new Set<number>(config.init.white ?? [])
+  const dynamicWhite = new Set<number>(config.init.whiteList ?? [])
   bot.on('FriendMessage', new Middleware<EventEntityMap['FriendMessage']>()
     .textProcessor()
     .use(async (ctx, next) => {
