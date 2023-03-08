@@ -1,6 +1,6 @@
 export default {
   openai: {
-    secret: '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',
+    secret: 'sk-xxx',
     model: 'gpt-3.5-turbo'
   },
   miraiJSConfig: {
