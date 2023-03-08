@@ -1,5 +1,5 @@
 import { ChatCompletionRequestMessage, Configuration, OpenAIApi } from "openai"
-import { MassageContext } from "./MessageContext"
+import { MassageContext } from "./MessageContext.js"
 
 export interface ChatContext {
   send(msg: ChatCompletionRequestMessage, retry?: number): Promise<string>
