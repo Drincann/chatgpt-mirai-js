@@ -22,7 +22,6 @@ export const createChatContext = ({
     async send(msg: ChatCompletionRequestMessage, retry: number = 2): Promise<string> {
       try {
         msgContext.push(msg)
-        console.log(JSON.stringify(msgContext.getMessagesClone(), null, 2))
         const res = await openai.createChatCompletion({
           model: model ?? 'gpt-3.5-turbo',
           messages: msgContext.getMessagesClone(),
