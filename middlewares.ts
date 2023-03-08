@@ -16,7 +16,7 @@ export const friendChat = ({ init, secret, before }: {
         threads[ctx.sender.id] = createChatContext({
           secret,
           model: 'gpt-3.5-turbo',
-          messages: typeof init === 'string' ? [{ role: 'assistant', content: init, name: 'ChatGPT' }] : undefined,
+          messages: typeof init === 'string' ? [{ role: 'assistant', content: init }] : undefined,
         })
       }
       ctx.chatContext = threads[ctx.sender.id]
@@ -30,7 +30,7 @@ export const friendChat = ({ init, secret, before }: {
       if (ctx.chatContext === undefined) return
       let res: string = '';
       try {
-        res = await ctx.chatContext.send({ role: 'user', content: ctx.text, name: 'user' })
+        res = await ctx.chatContext.send({ role: 'user', content: ctx.text })
       } catch (e) {
         let log = `[ERROR] ${(e as any)?.response?.status} ${JSON.stringify((e as any)?.response?.data)}`;
         console.log(log)
