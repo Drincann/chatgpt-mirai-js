@@ -14,7 +14,7 @@ export interface CreateContextOptions {
 }
 
 export const createChatContext = ({
-  secret, model, messages, maxToken = 3840,
+  secret, model, messages, maxToken = 4096,
 }: CreateContextOptions): ChatContext => {
   const openai = new OpenAIApi(new Configuration({ apiKey: secret }));
   let msgContext = new MassageContext(messages ?? [], maxToken)
